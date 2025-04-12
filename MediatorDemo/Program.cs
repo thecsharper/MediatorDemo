@@ -1,4 +1,17 @@
+using Mediator;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+
+
+// https://github.com/martinothamar/Mediator?tab=readme-ov-file#42-add-mediator-to-di-container
+
 var builder = WebApplication.CreateBuilder(args);
+
+var services = new ServiceCollection(); // Most likely IServiceCollection comes from IHostBuilder/Generic host abstraction in Microsoft.Extensions.Hosting
+
+services.AddMediator();
+var serviceProvider = services.BuildServiceProvider();
+
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
